@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 import pandas as pd
 import numpy as np
 import joblib
@@ -14,7 +15,7 @@ class_labels = {
 df_class_labels = pd.DataFrame(class_labels)
 
 # Specify the local path to the scaler
-scaler_path = 'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\scaler.pkl'
+scaler_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'scaler.pkl')
 # Load the scaler
 scaler = joblib.load(scaler_path)
 

@@ -25,11 +25,11 @@ def custom_precision_score(y_true, y_pred):
 
 # Define local paths for your saved models using double backslashes to avoid escape sequence errors
 base_model_paths = [
-    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\lr_model.pkl',
-    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\dt_model.pkl',
-    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\rf_model.pkl',
-    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\xgb_model.pkl',
-    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\svm_model.pkl'
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'dt_model.pkl'),
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'lr_model.pkl'),
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'rf_model.pkl'),
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'svm_model.pkl'),
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'xgb_model.pkl'),
 ]
 meta_model_path = 'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\final_model.h5'
 

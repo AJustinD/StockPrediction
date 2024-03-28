@@ -31,7 +31,7 @@ base_model_paths = [
     os.path.join(os.path.dirname(os.path.dirname(__file__)), 'svm_model.pkl'),
     os.path.join(os.path.dirname(os.path.dirname(__file__)), 'xgb_model.pkl'),
 ]
-meta_model_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'final_model.pkl')
+meta_model_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'final_model.h5')
 
 # Load base models and meta model directly from the specified paths
 base_models = [joblib.load(model_path) for model_path in base_model_paths]

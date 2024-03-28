@@ -1,9 +1,9 @@
 streamlit
 joblib
-numpy == 1.24.4
-pandas == 1.4.4
+numpy
+pandas
 scikit-learn == 1.1.2
 tensorflow == 2.15.0
 h5py == 3.10.0
-python == 3.10.6
+python
 # add other packages that your app depends on

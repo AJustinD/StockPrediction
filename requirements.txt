@@ -1,0 +1,6 @@
+streamlit
+joblib
+numpy
+pandas
+scikit-learn
+# add other packages that your app depends on

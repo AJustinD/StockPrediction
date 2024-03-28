@@ -5,5 +5,4 @@ pandas
 scikit-learn == 1.1.2
 tensorflow == 2.15.0
 h5py == 3.10.0
-python
 # add other packages that your app depends on

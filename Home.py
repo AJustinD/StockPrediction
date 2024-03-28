@@ -7,6 +7,8 @@ st.set_page_config(
     layout="wide"
 )
 
+
+
 st.markdown(
     """
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -23,10 +25,6 @@ st.markdown(
     .con-title {
     }
 
-    body {
-        margin: 0;
-        padding: 0;
-    }
     .title {
         font-size: 45px;
         color: white;
@@ -158,7 +156,13 @@ st.markdown(
         <div class="collapse navbar-collapse bg-dark p-2" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link active text-light" aria-current="page" href="#">Alexander Justin | Universiti Sains Malaysia</a>
+            <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" href="/Dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" href="/Prediction">Prediction</a>
             </li>
         </ul>
         </div>
@@ -236,6 +240,9 @@ st.markdown(
                 </div>
             </div>
             <div class="con-3 col d-flex justify-content-center position-relative">
+            <div class="position-absolute top-50 start-50 translate-middle">
+                <button type="button" class="btn btn-primary custom-btn">Click Here !!</button>
+            </div>
             </div>
         </div>
     </div>
@@ -268,7 +275,7 @@ st.markdown(
     </div>
     <div class="row">
             <div class="col">
-            <div class='footer'> Alexander Justin | USM © 2024 | All Rights Reserved</div>
+            <div class='footer'>Alexander Justin | USM © 2024 | All Rights Reserved</div>
             </div>
         </div>
     </div>

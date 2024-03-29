@@ -1,11 +1,9 @@
 import streamlit as st
-import os
 import pandas as pd
 import numpy as np
 import joblib
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import make_scorer, precision_score
-from tensorflow.keras.models import load_model
 
 # Define the class Labels
 class_labels = {
@@ -15,7 +13,7 @@ class_labels = {
 df_class_labels = pd.DataFrame(class_labels)
 
 # Specify the local path to the scaler
-scaler_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'scaler.pkl')
+scaler_path = 'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\scaler.pkl'
 # Load the scaler
 scaler = joblib.load(scaler_path)
 
@@ -25,17 +23,17 @@ def custom_precision_score(y_true, y_pred):
 
 # Define local paths for your saved models using double backslashes to avoid escape sequence errors
 base_model_paths = [
-    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'dt_model.pkl'),
-    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'lr_model.pkl'),
-    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'rf_model.pkl'),
-    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'svm_model.pkl'),
-    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'xgb_model.pkl'),
+    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\lr_model.pkl',
+    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\dt_model.pkl',
+    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\rf_model.pkl',
+    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\xgb_model.pkl',
+    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\knn_model.pkl'
 ]
-meta_model_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'final_model.h5')
+meta_model_path = 'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\final_model.pkl'
 
 # Load base models and meta model directly from the specified paths
 base_models = [joblib.load(model_path) for model_path in base_model_paths]
-meta_model = load_model(meta_model_path)
+meta_model = joblib.load(meta_model_path)
 
 # Streamlit UI
 st.title('Multiclass Classification App')
@@ -60,11 +58,10 @@ if all(value is not None for value in features_input):
         # Generate base model predictions
         base_predictions_unseen = np.column_stack([model.predict(X_unseen) for model in base_models])
 
-        # Meta-model prediction
-        final_predictions = meta_model.predict(base_predictions_unseen)
+        # Meta-model probability prediction
+        final_probabilities = meta_model.predict_proba(base_predictions_unseen)
 
-        # Assuming the meta-model outputs class probabilities, get the labels
-        final_predictions_labels = np.argmax(final_predictions, axis=1)
+        predicted_label = df_class_labels['Class Label'][np.argmax(final_probabilities)]  # Get the label with the highest probability
 
         # Display class labels and their corresponding index number
         st.subheader('Class labels and their corresponding index number')
@@ -72,13 +69,12 @@ if all(value is not None for value in features_input):
 
         # Display the prediction
         st.subheader('Prediction')
-        st.write(f'Prediction: {df_class_labels["Class Label"].iloc[final_predictions_labels[0]]}')
+        st.write(f'Prediction: {predicted_label}')
 
         # Display Prediction Probabilities
         st.subheader('Prediction Probability')
-        # Display the probabilities in a more interpretable way, if necessary
-        # For example, you can display only the highest probability and corresponding class
-        st.write(final_predictions)
-
+        # Display the probabilities for each class
+        probability_data = pd.DataFrame(final_probabilities, columns=df_class_labels['Class Label'])
+        st.write(probability_data)
 else:
     st.error("Please fill in all the input fields.")

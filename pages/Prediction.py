@@ -13,7 +13,7 @@ class_labels = {
 df_class_labels = pd.DataFrame(class_labels)
 
 # Specify the local path to the scaler
-scaler_path = 'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\scaler.pkl'
+scaler_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'scaler.pkl')
 # Load the scaler
 scaler = joblib.load(scaler_path)
 
@@ -23,13 +23,13 @@ def custom_precision_score(y_true, y_pred):
 
 # Define local paths for your saved models using double backslashes to avoid escape sequence errors
 base_model_paths = [
-    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\lr_model.pkl',
-    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\dt_model.pkl',
-    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\rf_model.pkl',
-    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\xgb_model.pkl',
-    'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\knn_model.pkl'
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'dt_model.pkl'),
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'lr_model.pkl'),
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'rf_model.pkl'),
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'knn_model.pkl'),
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'xgb_model.pkl')
 ]
-meta_model_path = 'C:\\Users\\alexa\\OneDrive\\Pictures\\Documents\\StockWebApp\\final_model.pkl'
+meta_model_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'final_model.pkl')
 
 # Load base models and meta model directly from the specified paths
 base_models = [joblib.load(model_path) for model_path in base_model_paths]

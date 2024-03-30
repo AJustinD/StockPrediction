@@ -239,11 +239,7 @@ st.markdown(
                     </div>
                 </div>
             </div>
-            <div class="con-3 col d-flex justify-content-center position-relative">
-            <div class="position-absolute top-50 start-50 translate-middle">
-                <button type="button" class="btn btn-primary custom-btn">Click Here !!</button>
-            </div>
-            </div>
+            
         </div>
     </div>
     </div>

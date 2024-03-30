@@ -8,5 +8,5 @@ h5py == 3.10.0
 xgboost == 2.0.3
 yfinance
 plotly
-alpha_vantage.fundamentaldata
+alpha_vantage
 # add other packages that your app depends on

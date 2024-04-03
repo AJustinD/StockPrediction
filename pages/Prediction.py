@@ -39,18 +39,21 @@ meta_model = joblib.load(meta_model_path)
 # Streamlit UI
 st.title('Multiclass Classification App')
 
-# Define and collect input features from the user
 feature_names = ['Net Foreign Buy (Vol)', 'Volume', 'Frequency']
-features_input = []
-default_values = [100000, 1000000, 15000]
+default_values = [100000, 1000000, 15000]  # Assuming net foreign buy is typically negative
 
-for i, feature_name in enumerate(feature_names):  # Use custom feature names
-    input_value = st.number_input(feature_name, value=default_values[i])
+features_input = []
+
+# Assuming 'Net Foreign Buy (Vol)' needs to be captured as 'Net_foreign_buy'
+net_foreign_buy_vol = st.number_input('Net Foreign Buy (Vol)', value=default_values[0])
+features_input.append(-float(net_foreign_buy_vol))  # Appending as 'Net_domestic_buy'
+
+features_input.append(float(net_foreign_buy_vol))  # Appending as 'Net_foreign_buy'
+
+# Collect the rest of the features
+for i, feature_name in enumerate(feature_names[1:]):  # Start from 1 to skip 'Net Foreign Buy (Vol)'
+    input_value = st.number_input(feature_name, value=default_values[i + 1])  # i + 1 because we've already handled index 0
     features_input.append(float(input_value))
-    
-# Automatically calculate 'Net Domestic Buy (Vol)' as the negative of 'Net Foreign Buy (Vol)'
-net_domestic_buy_vol = -features_input[0]
-features_input.append(net_domestic_buy_vol)
 
 # Predict button
 if all(value is not None for value in features_input):

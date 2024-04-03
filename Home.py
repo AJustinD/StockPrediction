@@ -164,6 +164,9 @@ st.markdown(
             <li class="nav-item">
             <a class="nav-link active text-light" aria-current="page" href="/Prediction">Prediction</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" href="/About">About</a>
+            </li>
         </ul>
         </div>
     </div>
@@ -218,7 +221,7 @@ st.markdown(
                 <div class="card shadow">
                     <i class="bi bi-lightbulb-fill custom-icon"></i>
                     <div class="card-body">
-                        <h4 class="title-card">About</h4>
+                        <h4 class="title-card"><a href ="/About">About</a></h4>
                         <p class="card-text">Discover more about the methodologies behind our predictions and the team behind this project.</p>
                     </div>
                 </div>

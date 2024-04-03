@@ -9,4 +9,5 @@ xgboost == 2.0.3
 yfinance
 plotly
 stocknews
+prophet
 # add other packages that your app depends on

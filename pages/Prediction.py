@@ -70,6 +70,7 @@ if all(value is not None for value in features_input):
 
         # Display class labels and their corresponding index number
         st.subheader('Class labels and their corresponding index number')
+        st.write('Super-up : Above 5% | Super-down: Below -5%')
         st.table(df_class_labels)
 
         # Display the prediction

@@ -7,6 +7,7 @@ from prophet import Prophet
 from prophet.plot import plot_plotly
 from plotly import graph_objs as go
 from datetime import date
+import json
 
 
 st.title('Stock Dashboard')
@@ -21,7 +22,21 @@ data = yf.download(ticker,start = start_date, end= end_date)
 fig = px.line(data, x= data.index, y = data['Adj Close'], title = ticker)
 st.plotly_chart(fig)
 
-pricing_data , fundamental_data, news = st.tabs(["Price Data", "Fundamental Data", "Top 10 News"])
+def load_comments(ticker):
+    try:
+        with open(f"{ticker}_comments.json", "r") as file:
+            comments = json.load(file)
+    except FileNotFoundError:
+        comments = []
+    return comments
+
+def save_comment(ticker, comment):
+    comments = load_comments(ticker)
+    comments.append(comment)
+    with open(f"{ticker}_comments.json", "w") as file:
+        json.dump(comments, file)
+
+pricing_data , fundamental_data, news, forum = st.tabs(["Price Data", "Fundamental Data", "Top 10 News", "Discussion Forum"])
 
 with pricing_data:
     st.header('Price Movement')
@@ -66,6 +81,26 @@ with news:
         st.write(f'Title Sentiment {title_sentiment}')
         news_sentiment = df_news['sentiment_summary'][i]
         st.write(f'News Sentiment {news_sentiment}')
+with forum:
+    st.header(f"Discussion Forum for {ticker}")
+
+    # Load and display comments
+    comments = load_comments(ticker)
+    for comment in comments:
+        st.text_area("", comment, disabled=True, height=75)
+
+    # Input for new comment
+    new_comment = st.text_area('Add your discussion')
+
+    # Button to post a new comment
+    if st.button('Post Comment'):
+        if new_comment:
+            save_comment(ticker, new_comment)
+            st.success('Comment posted successfully!')
+            # Rerun the app to update the comments display
+            st.experimental_rerun()
+        else:
+            st.error('Please enter a comment before posting.')
 
 START = "2020-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")

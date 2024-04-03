@@ -2,7 +2,6 @@ import streamlit as st
 import datetime
 import yfinance as yf, pandas as pd, numpy as np
 import plotly.express as px
-from alpha_vantage.fundamentaldata import FundamentalData
 from stocknews import StockNews
 from prophet import Prophet
 from prophet.plot import plot_plotly

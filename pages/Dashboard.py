@@ -83,33 +83,12 @@ with news:
         st.write(f'News Sentiment {news_sentiment}')
 with forum:
     st.header(f"Discussion Forum for {ticker}")
-    
-    # Custom CSS to create a scrollbar within the container
-    st.markdown(
-        """
-        <style>
-        .scrollable-container {
-            height: 300px;
-            overflow-y: scroll;
-            padding: 1rem 0;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-    
-    # Create a container with a scrollbar
-    container = st.container()
-    with container:
-        st.markdown('<div class="scrollable-container">', unsafe_allow_html=True)
-        
-        # Load and display comments
-        comments = load_comments(ticker)
-        for comment in comments:
-            st.text_area("", comment, height=75, disabled=True)
-        
-        st.markdown('</div>', unsafe_allow_html=True)
-    
+
+    # Load and display comments
+    comments = load_comments(ticker)
+    for comment in comments:
+        st.text_area("", comment, disabled=True, height=75)
+
     # Input for new comment
     new_comment = st.text_area('Add your discussion')
 
@@ -121,7 +100,7 @@ with forum:
             # Rerun the app to update the comments display
             st.experimental_rerun()
         else:
-            st.error('Please enter a comment before posting.')
+            st.error('Please enter a comment before posting.'
 
 START = "2020-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")

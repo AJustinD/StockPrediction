@@ -10,7 +10,7 @@ from datetime import date
 
 
 st.title('Stock Dashboard')
-stocks = ('BBCA.JK', 'BBRI.JK', 'TLKM.JK', 'ASII.JK')  # Use Indonesian stock market symbols
+stocks = ('ASII.JK','BBCA.JK','BMRI.JK','BBNI.JK','BBRI.JK','BYAN.JK','TLKM.JK','INDF.JK','TPIA.JK','UNTR.JK','GOTO.JK')
 ticker = st.selectbox('Select dataset for prediction', stocks)
 start_date = st.date_input('Start Date', datetime.date(2024, 1, 1))
 end_date = st.date_input('End Date', datetime.date.today())

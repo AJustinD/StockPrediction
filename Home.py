@@ -238,7 +238,7 @@ st.markdown(
                         <h1>Getting Started</h1>
                     </div>
                     <div class="position-absolute top-50 ps-4">
-                        <p>Start by navigating to the <i>Dashboard</i> for an overview of market trends, or jump straight to the <i>Predictions</i> page to get forecasts on stock prices. If you're new to our app, the 'About' section is a great place to start to learn more about our predictive models and data sources.</p>
+                        <p>Start by navigating to the <i>Dashboard</i> for an overview of market trends, or jump straight to the <i>Predictions</i> page to get forecasts on stock prices. If you're new to our app, the <i>About</i> section is a great place to start to learn more about our predictive models and data sources.</p>
                     </div>
                 </div>
         </div>

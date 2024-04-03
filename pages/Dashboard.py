@@ -107,7 +107,7 @@ forecast = m.predict(future)
 
 # Show and plot forecast
 st.subheader(f'Forecast data for {ticker}')
-st.write(forecast.tail())
+st.write(forecast.tail(period))
 
 st.write(f'Forecast plot for {n_months} months')
 fig1 = plot_plotly(m, forecast)

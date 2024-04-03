@@ -29,11 +29,13 @@ with pricing_data:
     data2['% Change'] = data['Adj Close'] / data['Adj Close'].shift(1) - 1
     data2.dropna(inplace = True)
     st.write(data2)
-    annual_return = data2['% Change'].mean() * 252 * 100
+    annual_return = round(data2['% Change'].mean() * 252 * 100, 2)
     st.write('Annual Return is ', annual_return, '%')
-    stdev = np.std(data2['% Change']) * np.sqrt(252)
-    st.write('Standard Deviation is ', stdev*100, '%') # Volatility
-    st.write('Risk Adj. Return is ', annual_return/ (stdev*100))
+    stdev = round(np.std(data2['% Change']) * np.sqrt(252) * 100,2)
+    st.write('Standard Deviation is ', stdev, '%') # Volatility
+    risk_adj_return = round(annual_return / stdev, 2) if stdev != 0 else 0
+    st.write('Risk Adj. Return is ', risk_adj_return)
+
 
 with fundamental_data:
     ticker_data = yf.Ticker(ticker)

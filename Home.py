@@ -200,7 +200,7 @@ st.markdown(
                 <div class="card shadow">
                     <i class="bi bi-clipboard-data-fill custom-icon"></i>
                     <div class="card-body">
-                        <h4 class="title-card">Dashboard</h4>
+                        <h4 class="title-card"><a href ="/Dashboard">Dashboard</a></h4>
                         <p class="card-text">Get a comprehensive view of the stock market with interactive charts and the latest market data.</p>
                     </div>
                 </div>
@@ -209,7 +209,7 @@ st.markdown(
                 <div class="card shadow">
                     <i class="bi bi-graph-up-arrow custom-icon"></i>
                     <div class="card-body">
-                        <h4 class="title-card">Predictions</h4>
+                        <h4 class="title-card"><a href ="/Prediction">Prediction</a></h4>
                         <p class="card-text">Enter details about a stock to receive a prediction on its future price movement.</p>
                     </div>
                 </div>

@@ -100,7 +100,7 @@ with forum:
             # Rerun the app to update the comments display
             st.experimental_rerun()
         else:
-            st.error('Please enter a comment before posting.'
+            st.error('Please enter a comment before posting.')
 
 START = "2020-01-01"
 TODAY = date.today().strftime("%Y-%m-%d")

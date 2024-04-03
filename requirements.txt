@@ -10,4 +10,5 @@ yfinance
 plotly
 stocknews
 prophet
+json
 # add other packages that your app depends on

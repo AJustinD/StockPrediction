@@ -167,13 +167,13 @@ st.markdown(
             <a class="nav-link active text-light" aria-current="page" href="/Home">Home</a>
             </li>
             <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" href="#">About</a>
+            </li>
+            <li class="nav-item">
             <a class="nav-link active text-light" aria-current="page" href="/Dashboard">Dashboard</a>
             </li>
             <li class="nav-item">
             <a class="nav-link active text-light" aria-current="page" href="/Prediction">Prediction</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active text-light" aria-current="page" href="#">About</a>
             </li>
         </ul>
         </div>

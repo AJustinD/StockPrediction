@@ -13,7 +13,7 @@ import json
 st.title('Stock Dashboard')
 stocks = ('ASII.JK','ACES.JK','ADRO.JK','ANTM.JK','AMRT.JK','BBCA.JK','BBTN.JK','BMRI.JK','BBNI.JK','BBRI.JK','BUKA.JK',
 	  'BRIS.JK','BREN.JK','BRPT.JK','BYAN.JK','CUAN.JK','CPIN.JK','DCII.JK','GOTO.JK','GGRM.JK','HSMP.JK','INDF.JK','ITMG.JK',
-	  'KLBF.JK','MBMA.JK','MDKA.JK','MEDC.JK','PGAS.JK','PTBA.JK','SIDO.JK','TPIA.JK','TLKM.JK','TOWR.JK','UNTR.JK')
+	  'KLBF.JK','MBMA.JK','MDKA.JK','MEDC.JK','PGAS.JK','PTBA.JK','SIDO.JK','TPIA.JK','TLKM.JK','TOWR.JK','UNTR.JK','UNVR.JK')
 ticker = st.selectbox('Select dataset for prediction', stocks)
 start_date = st.date_input('Start Date', datetime.date(2024, 1, 1))
 end_date = st.date_input('End Date', datetime.date.today())
